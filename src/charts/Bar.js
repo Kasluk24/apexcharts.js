@@ -119,9 +119,7 @@ class Bar {
 
             this.ctx.series.addCollapsedClassToSeries(elSeries, realIndex)
 
-            if (series[i].length > 0) {
-                this.visibleI = this.visibleI + 1
-            }
+            this.visibleI = 0  // Bars overlap
 
             let barHeight = 0
             let barWidth = 0
@@ -147,6 +145,12 @@ class Bar {
             barWidth = initPositions.barWidth
             xDivision = initPositions.xDivision
             zeroH = initPositions.zeroH
+
+            if (i > 0) {
+                let factor = 0.6
+                barWidth = barWidth * 0.6
+                x = x + (initPositions.barWidth / 2) - barWidth / 2
+            }
 
             if (!this.isHorizontal) {
                 xArrj.push(x + barWidth / 2)

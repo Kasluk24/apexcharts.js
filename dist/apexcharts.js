@@ -18474,9 +18474,8 @@
             'data:realIndex': realIndex
           });
           this.ctx.series.addCollapsedClassToSeries(elSeries, realIndex);
-          if (series[i].length > 0) {
-            this.visibleI = this.visibleI + 1;
-          }
+          this.visibleI = 0; // Bars overlap
+
           var barHeight = 0;
           var barWidth = 0;
           if (this.yRatio.length > 1) {
@@ -18494,6 +18493,10 @@
           barWidth = initPositions.barWidth;
           xDivision = initPositions.xDivision;
           zeroH = initPositions.zeroH;
+          if (i > 0) {
+            barWidth = barWidth * 0.6;
+            x = x + initPositions.barWidth / 2 - barWidth / 2;
+          }
           if (!this.isHorizontal) {
             xArrj.push(x + barWidth / 2);
           }
