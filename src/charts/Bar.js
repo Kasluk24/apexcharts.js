@@ -146,9 +146,15 @@ class Bar {
             xDivision = initPositions.xDivision
             zeroH = initPositions.zeroH
 
-            if (i > 0) {
+            if (i == 1) {
+                let factor = 0.8
+                barWidth = barWidth * factor
+                x = x + (initPositions.barWidth / 2) - barWidth / 2
+            }
+
+            if (i == 2) {
                 let factor = 0.6
-                barWidth = barWidth * 0.6
+                barWidth = barWidth * factor
                 x = x + (initPositions.barWidth / 2) - barWidth / 2
             }
 
